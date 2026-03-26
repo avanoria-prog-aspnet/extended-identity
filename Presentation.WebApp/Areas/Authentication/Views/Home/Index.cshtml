@@ -1,4 +1,7 @@
 ﻿@model SignUpForm
+@{
+    ViewData["Title"] = "Become a Member";
+}
 
 <section class="_auth">
     <div class="title">
@@ -14,7 +17,7 @@
         <div data-type="email" class="form-group">
             <label class="form-label" asp-for="Email"></label>
             <input class="form-input" asp-for="Email" />
-            <span class="field-validation" asp-validation-for="Email"></span>
+            <span class="form-field-validation" asp-validation-for="Email"></span>
         </div>
 
         <button class="btn" type="submit">Continue</button>
@@ -22,7 +25,7 @@
         <div data-type="terms" class="form-group form-checkbox-group">
             <input class="form-input" asp-for="TermsAndConditions" />
             <label class="form-label" asp-for="TermsAndConditions"></label>
-            <span class="field-validation" asp-validation-for="TermsAndConditions"></span>
+            <span class="form-field-validation" asp-validation-for="TermsAndConditions"></span>
         </div>
 
         <div class="form-errormessage">

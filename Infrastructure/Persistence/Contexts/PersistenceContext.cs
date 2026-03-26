@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Contexts;
 
-public class PersistenceContext(DbContextOptions<PersistenceContext> options) : IdentityDbContext<AppUser>(options)
+public class PersistenceContext(DbContextOptions<PersistenceContext> options) : IdentityDbContext<AppUser, AppRole, string>(options)
 {
     protected override void OnModelCreating(ModelBuilder builder)
     {

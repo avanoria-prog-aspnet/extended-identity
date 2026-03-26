@@ -35,9 +35,6 @@ public sealed class IdentityAuthService(UserManager<AppUser> userManager, SignIn
 
         var result = await signInManager.PasswordSignInAsync(email, password, rememberMe, false);
         
-        if (!result.Succeeded)
-            return AuthResult.Failed("Incorrect email address or password.");
-
         if (result.IsLockedOut)
             return AuthResult.Failed("User has been locked. Please contact support.");
 
@@ -46,6 +43,9 @@ public sealed class IdentityAuthService(UserManager<AppUser> userManager, SignIn
 
         if (result.RequiresTwoFactor)
             return AuthResult.Failed("This user requires multi-factor authentication.");
+
+        if (!result.Succeeded)
+            return AuthResult.Failed("Incorrect email address or password.");
 
         return AuthResult.Ok();
     }
