@@ -1,6 +1,12 @@
+using Application;
+using Infrastructure;
 using Presentation.WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
+builder.Services.AddApplication(builder.Configuration, builder.Environment);
+
 
 builder.Services.AddScoped<IFaqService, FaqService>();
 
